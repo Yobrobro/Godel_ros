@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py gp25_workspace manipulator gp25_workspace_ikfast_manipulator_plugin /home/sander/bep_ws/src/gp25_workspace_ikfast_manipulator_plugin/src/gp25_workspace_manipulator_ikfast_solver.cpp

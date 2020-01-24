@@ -1,0 +1,1 @@
+In the ROS_common.sys file, located in the abb_driver/rapid folder, the maximum trajectory length has been brought up to 500 (instead of the original 100), because godel often needs around 300 to 400 points for path execution with small tool radiuses.

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gp25_descartes</name>
+  <version>0.1.0</version>
+  <description>
+    Defines a Descartes RobotModel plugin using the gp25_workspace_ikfast_manipulator_plugin
+    for kinematics. 
+  </description>
+
+  <maintainer email="Jmeyer@swri.org">Jonathan Meyer</maintainer>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>descartes_core</depend>
+  <depend>descartes_moveit</depend>
+  <depend>gp25_workspace_ikfast_manipulator_plugin</depend>
+  <depend>pluginlib</depend>
+
+  <export>
+    <descartes_core plugin="${prefix}/gp25_descartes_plugins.xml"/>
+  </export>
+
+</package>

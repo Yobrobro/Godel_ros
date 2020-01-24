@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<library path="lib/libgp25_descartes">
+  <class name="gp25_descartes/GP25RobotModel" type="gp25_descartes::GP25RobotModel" base_class_type="descartes_core::RobotModel">
+    <description>This is a robot model adapter for of the yaskawa gp25 for descartes robot model. </description>
+  </class>
+</library>

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: yaskawa_gp25_support
+    relative_path: urdf/gp25_workspace.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/gp25_workspace.srdf
+  CONFIG:
+    author_name: Jan Jansen
+    author_email: janjan@jan.jan
+    generated_timestamp: 1574087671

@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+
+<robot name="yaskawa_gp25">
+
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/base_axis.dae" />
+      </geometry>
+      <material name="blue">
+	<color rgba="0 0 1 1"/>
+       </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/base_axis.stl" />
+      </geometry>
+      <material name="yellow">
+	<color rgba="0 1 1 1"/>
+       </material>
+    </collision>
+  </link>
+
+  <link name="vendor_base_link" />
+
+  <link name="link_s">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/s_axis.dae"/>
+      </geometry>
+      <material name="silver">
+	<color rgba="0.8 0.8 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/s_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="link_l">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/l_axis.dae"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/l_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="link_u">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/u_axis.dae"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/u_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="link_r">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/r_axis.dae"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/r_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="link_b">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/b_axis.dae"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/b_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="link_t">
+    <visual>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/visual/t_axis.dae" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yaskawa_gp25_support/meshes/gp25/collision/t_axis.stl" />
+      </geometry>
+      <material name="yellow"/>
+    </collision>
+  </link>
+
+  <link name="vendor_ee" />
+<!-- end of link list -->
+
+  <joint name="vendor_base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="vendor_base_link"/>
+    <origin xyz="0 0 0.505" />
+  </joint>
+
+ <joint name="joint_s" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_s"/>
+    <origin xyz="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" lower="-3.14" upper= "3.14" velocity="3.44"/>
+  </joint>
+
+  <joint name="joint_l" type="revolute">
+    <parent link="link_s"/>
+    <child link="link_l"/>
+    <origin xyz="0.150 0 0.505" />
+    <axis xyz="0 1 0" />
+    <limit effort="100" lower="-1.833" upper= "2.705" velocity="3.32"/>
+  </joint>
+
+  <joint name="joint_u" type="revolute">
+    <parent link="link_l"/>
+    <child link="link_u"/>
+    <origin xyz="0 0 0.76" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" lower="-1.50" upper= "2.845" velocity="3.67"/>
+  </joint>
+
+  <joint name="joint_r" type="revolute">
+    <parent link="link_u"/>
+    <child link="link_r"/>
+    <origin xyz="0 0 0.2" rpy="0 0 0" />
+    <axis xyz="-1 0 0" />
+    <limit effort="100" lower="-3.49" upper= "3.49" velocity="7.16"/>
+  </joint>
+
+  <joint name="joint_b" type="revolute">
+    <parent link="link_r"/>
+    <child link="link_b"/>
+    <origin xyz="0.795 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" lower="-2.618" upper= "2.618" velocity="7.16"/>
+  </joint>
+
+  <joint name="joint_t" type="revolute">
+    <parent link="link_b"/>
+    <child link="link_t"/>
+    <origin xyz="0.1 0 0" rpy="0 0 0" />
+    <axis xyz="-1 0 0" />
+    <limit effort="100" lower="-7.941" upper= "7.941" velocity="10.82"/>
+  </joint>
+
+<joint name="vendor_ee_joint" type="fixed">
+    <parent link="link_t"/>
+    <child link="vendor_ee"/>
+    <origin rpy="0 -1.57 1.57" />
+  </joint>
+
+
+</robot>
+
+

@@ -1,0 +1,9 @@
+sensors:
+  - sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
+    # TODO: use appropriate cloud input topic
+    point_cloud_topic: octomap_point_cloud
+    max_range: 5.0
+    point_subsample: 1
+    padding_offset: 0.05
+    padding_scale: 1
+    filtered_cloud_topic: godel_octomap_filtered_cloud
